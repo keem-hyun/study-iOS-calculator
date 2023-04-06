@@ -8,91 +8,44 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var firstText: UITextField!
     @IBOutlet weak var secondText: UITextField!
     var result: Double?
-    var delegate: CalculateDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
+    
     // MARK: - func
-
-    @IBAction func plusButtonTapped(_ sender: UIButton) {
+    
+    @IBAction func calculateButtonTapped(_ sender: UIButton) {
         guard let firstNum = Double(firstText.text!) else {return}
         guard let secondNum = Double(secondText.text!) else {return}
         
-        result = firstNum + secondNum
-//        if let firstNum = Double(firstText.text!),
-//           let secondNum = Double(secondText.text!) {
-//            result = firstNum + secondNum
-//        } else {
-//
-//        }
-        
-        
-        
+        switch sender.currentTitle! {
+        case "+":
+            result = firstNum + secondNum
+        case "-":
+            result = firstNum - secondNum
+        case "X":
+            result = firstNum * secondNum
+        case "%":
+            result = firstNum / secondNum
+        default:
+            break
+        }
         
         guard let resultVC = storyboard?.instantiateViewController(withIdentifier: "resultVC") as? resultViewController else {return}
-        
         resultVC.firstVCdata = String(result!)
+        resultVC.modalPresentationStyle = .fullScreen
         present(resultVC, animated: true)
         
         firstText.text = ""
         secondText.text = ""
+        
     }
-    
-    @IBAction func minusButtonTapped(_ sender: UIButton) {
-        guard let firstNum = Double(firstText.text!) else {return}
-        guard let secondNum = Double(secondText.text!) else {return}
-        result = firstNum - secondNum
-
-
-        guard let resultVC = storyboard?.instantiateViewController(withIdentifier: "resultVC") as? resultViewController else {return}
-
-        resultVC.firstVCdata = String(result!)
-        present(resultVC, animated: true)
-
-        firstText.text = ""
-        secondText.text = ""
-    }
-
-    @IBAction func multipleButtonTapped(_ sender: UIButton) {
-        guard let firstNum = Double(firstText.text!) else {return}
-        guard let secondNum = Double(secondText.text!) else {return}
-        result = firstNum * secondNum
-
-
-        guard let resultVC = storyboard?.instantiateViewController(withIdentifier: "resultVC") as? resultViewController else {return}
-
-        resultVC.firstVCdata = String(result!)
-        present(resultVC, animated: true)
-
-        firstText.text = ""
-        secondText.text = ""
-    }
-
-    @IBAction func divisonButtonTapped(_ sender: UIButton) {
-        guard let firstNum = Double(firstText.text!) else {return}
-        guard let secondNum = Double(secondText.text!) else {return}
-        result = firstNum / secondNum
-
-
-        guard let resultVC = storyboard?.instantiateViewController(withIdentifier: "resultVC") as? resultViewController else {return}
-
-        resultVC.firstVCdata = String(result!)
-        present(resultVC, animated: true)
-
-        firstText.text = ""
-        secondText.text = ""
-    }
-    
-    
-    
-    
-    
 }
 
 
