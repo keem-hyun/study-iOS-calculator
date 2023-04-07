@@ -106,7 +106,7 @@
         <!--Result View Controller-->
         <scene sceneID="Laa-ig-akW">
             <objects>
-                <viewController storyboardIdentifier="resultVC" id="vHR-EM-hZb" customClass="resultViewController" customModule="calculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="resultVC" id="vHR-EM-hZb" customClass="ResultViewController" customModule="calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cF9-Qu-6Zg">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class resultViewController: UIViewController {
+class ResultViewController: UIViewController {
 
     @IBOutlet weak var resultData: UILabel!
     var firstVCdata : String?
